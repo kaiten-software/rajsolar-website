@@ -1,50 +1,116 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Sun, ArrowRight, Zap } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function SolarHeroSection() {
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 500], [0, 150]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -100]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+
+  // Typing effect
+  const [displayText, setDisplayText] = useState("");
+  const fullText = "Affordable Solar";
+  
+  useEffect(() => {
+    let currentIndex = 0;
+    const typingInterval = setInterval(() => {
+      if (currentIndex <= fullText.length) {
+        setDisplayText(fullText.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 100);
+    
+    return () => clearInterval(typingInterval);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-green-50/30 to-amber-50/20 pt-20" style={{ background: 'var(--section-bg-1)' }}>
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Animated Background Elements with Parallax */}
+      <motion.div className="absolute inset-0 overflow-hidden" style={{ y: y1 }}>
         {/* Soft gradient orbs */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-200/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-200/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-green-100/10 to-amber-100/10 rounded-full blur-3xl"></div>
-        
-        {/* Subtle rays effect */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 left-1/2 w-1 h-full bg-gradient-to-b from-amber-300/40 via-transparent to-transparent transform -rotate-12"></div>
-          <div className="absolute top-0 left-1/2 w-1 h-full bg-gradient-to-b from-green-300/30 via-transparent to-transparent transform rotate-12"></div>
-        </div>
-      </div>
+      </motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <motion.div className="absolute inset-0 opacity-30" style={{ y: y2 }}>
+        {/* Subtle rays effect with parallax */}
+        <div className="absolute top-0 left-1/2 w-1 h-full bg-gradient-to-b from-amber-300/40 via-transparent to-transparent transform -rotate-12"></div>
+        <div className="absolute top-0 left-1/2 w-1 h-full bg-gradient-to-b from-green-300/30 via-transparent to-transparent transform rotate-12"></div>
+      </motion.div>
+
+      <motion.div 
+        className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8"
+        style={{ opacity }}
+      >
         <div className="text-center max-w-5xl mx-auto">
           {/* Premium Badge */}
-          <div className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-green-600 to-green-500 text-white rounded-full text-sm font-medium mb-8 shadow-lg hover:shadow-xl transition-shadow">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-green-600 to-green-500 text-white rounded-full text-sm font-medium mb-8 shadow-lg hover:shadow-xl transition-shadow"
+          >
             <Sun className="w-4 h-4" />
             <span>Premium Solar EPC Solutions</span>
-          </div>
+          </motion.div>
           
-          {/* Main Headline */}
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-foreground mb-6 leading-[1.1]">
-            Clean. Powerful.
+          {/* Main Headline with Animations */}
+          <motion.h1 
+            className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-foreground mb-6 leading-[1.1]"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              Clean. Powerful.
+            </motion.span>
             <br />
             <span className="bg-gradient-to-r from-green-600 via-green-500 to-amber-500 bg-clip-text text-transparent font-semibold">
-              Affordable Solar
+              {displayText}
+              <motion.span
+                animate={{ opacity: [1, 0] }}
+                transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+                className="inline-block w-1 h-16 md:h-20 bg-green-600 ml-2"
+              />
             </span>
             <br />
-            <span className="text-5xl md:text-6xl lg:text-7xl">for Every Home.</span>
-          </h1>
+            <motion.span 
+              className="text-5xl md:text-6xl lg:text-7xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.6 }}
+            >
+              for Every Home.
+            </motion.span>
+          </motion.h1>
           
           {/* Sub-headline */}
-          <p className="text-xl md:text-2xl lg:text-3xl font-light text-muted-foreground mb-10 max-w-4xl mx-auto">
+          <motion.p 
+            className="text-xl md:text-2xl lg:text-3xl font-light text-muted-foreground mb-10 max-w-4xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1.8 }}
+          >
             End-to-end EPC solutions with guaranteed performance & worry-free installation
-          </p>
+          </motion.p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 2.2 }}
+          >
             <Link href="/contact">
               <Button 
                 size="lg" 
@@ -64,7 +130,7 @@ export default function SolarHeroSection() {
                 <Zap className="ml-2 w-5 h-5 text-amber-500 group-hover:scale-110 transition-transform" />
               </Button>
             </Link>
-          </div>
+          </motion.div>
 
           {/* Trust Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-5xl mx-auto">

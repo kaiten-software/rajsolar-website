@@ -1,8 +1,11 @@
 import { Home, Building2, Factory, Zap, Construction, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import { motion } from "framer-motion";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 export default function SolutionsSection() {
+  const { ref, isInView } = useScrollReveal();
   const solutions = [
     {
       icon: Home,
@@ -49,26 +52,35 @@ export default function SolutionsSection() {
   ];
 
   return (
-    <section className="py-24" style={{ background: 'var(--section-bg-5)' }}>
+    <section className="py-24" style={{ background: 'var(--section-bg-5)' }} ref={ref}>
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8 }}
+        >
           <h2 className="text-4xl md:text-5xl font-light text-foreground mb-4">
-            Our <span className="font-semibold text-green-600">Solar Solutions</span>
+            Our <span className="font-semibold bg-gradient-to-r from-green-600 to-green-500 bg-clip-text text-transparent">Solar Solutions</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Comprehensive EPC services tailored to your energy needs
           </p>
-        </div>
+        </motion.div>
 
         {/* Solutions Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {solutions.map((solution, index) => {
             const Icon = solution.icon;
             return (
-              <div 
+              <motion.div 
                 key={index}
                 className="group bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-green-300 hover:shadow-2xl transition-all duration-300"
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
               >
                 {/* Image */}
                 <div className="relative h-56 overflow-hidden bg-gray-100">
