@@ -29,7 +29,7 @@ export default function SolarHeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-green-50/30 to-amber-50/20 pt-20" style={{ background: 'var(--section-bg-1)' }}>
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-white via-green-50/30 to-amber-50/20 pt-20 flex flex-col items-center justify-center" style={{ background: 'var(--section-bg-1)' }}>
       {/* Animated Background Elements with Parallax */}
       <motion.div className="absolute inset-0 overflow-hidden" style={{ y: y1 }}>
         {/* Soft gradient orbs */}
@@ -44,7 +44,7 @@ export default function SolarHeroSection() {
         <div className="absolute top-0 left-1/2 w-1 h-full bg-gradient-to-b from-green-300/30 via-transparent to-transparent transform rotate-12"></div>
       </motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="text-center max-w-5xl mx-auto">
           {/* Premium Badge */}
           <motion.div
