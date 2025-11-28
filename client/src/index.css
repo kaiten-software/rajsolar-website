@@ -92,6 +92,15 @@
   --tracking-normal: -0.01em;
   --spacing: 0.25rem;
 
+  /* Section gradient backgrounds for visual separation */
+  --section-bg-1: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(249,252,250,1) 100%);
+  --section-bg-2: linear-gradient(180deg, rgba(249,252,250,1) 0%, rgba(255,255,255,1) 100%);
+  --section-bg-3: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(246,250,247,1) 100%);
+  --section-bg-4: linear-gradient(180deg, rgba(246,250,247,1) 0%, rgba(255,255,255,1) 100%);
+  --section-bg-5: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(252,254,253,1) 100%);
+  --section-bg-green: linear-gradient(180deg, rgba(249,252,250,1) 0%, rgba(244,249,246,1) 100%);
+  --section-bg-gold: linear-gradient(180deg, rgba(255,253,247,1) 0%, rgba(255,255,255,1) 100%);
+
   /* Automatically computed borders - intensity can be controlled by the user by the --opaque-button-border-intensity setting */
 
   /* Fallback for older browsers */

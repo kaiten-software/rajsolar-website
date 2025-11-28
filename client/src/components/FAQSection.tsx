@@ -52,7 +52,7 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24" style={{ background: 'var(--section-bg-gold)' }}>
       <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">

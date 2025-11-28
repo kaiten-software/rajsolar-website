@@ -35,7 +35,7 @@ export default function EPCProcessSection() {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-green-50/50 via-white to-amber-50/30">
+    <section className="py-24" style={{ background: 'var(--section-bg-4)' }}>
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-20">

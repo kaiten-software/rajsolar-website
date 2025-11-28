@@ -2,7 +2,7 @@ import { Award, Users, Zap, Target } from "lucide-react";
 
 export default function AboutCompanySection() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24" style={{ background: 'var(--section-bg-3)' }}>
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}

@@ -4,7 +4,7 @@ import { Sun, ArrowRight, Zap } from "lucide-react";
 
 export default function SolarHeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-green-50/30 to-amber-50/20 pt-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-green-50/30 to-amber-50/20 pt-20" style={{ background: 'var(--section-bg-1)' }}>
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Soft gradient orbs */}

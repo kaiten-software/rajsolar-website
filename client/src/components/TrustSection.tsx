@@ -35,7 +35,7 @@ export default function TrustSection() {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24" style={{ background: 'var(--section-bg-2)' }}>
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">

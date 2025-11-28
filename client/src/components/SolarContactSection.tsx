@@ -21,7 +21,7 @@ export default function SolarContactSection() {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-br from-white via-green-50/30 to-amber-50/20">
+    <section className="py-24" style={{ background: 'var(--section-bg-green)' }}>
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
