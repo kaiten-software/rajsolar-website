@@ -161,7 +161,7 @@ export default function SolarHeroSection() {
           </div>
 
           {/* Location Badge */}
-          <div className="mt-12 mb-20">
+          <div className="mt-12">
             <div className="inline-flex items-center gap-3 px-8 py-4 bg-white/80 backdrop-blur-sm rounded-full border border-green-200 shadow-lg">
               <span className="text-2xl">📍</span>
               <span className="text-base font-medium text-foreground">Based in Jaipur, Rajasthan</span>
@@ -169,13 +169,6 @@ export default function SolarHeroSection() {
               <span className="text-base font-medium text-foreground">Serving Pan-India</span>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
-        <div className="w-6 h-10 border-2 border-green-600 rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-3 bg-green-600 rounded-full"></div>
         </div>
       </div>
     </section>
