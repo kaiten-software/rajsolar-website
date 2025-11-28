@@ -171,7 +171,7 @@ export default function SolarHeroSection() {
             <span className="text-base font-medium text-foreground">Serving Pan-India</span>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">

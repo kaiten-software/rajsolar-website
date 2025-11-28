@@ -100,7 +100,7 @@ export default function AboutCompanySection() {
                 <div className="text-sm text-muted-foreground">Customer Satisfaction</div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Image */}
           <div className="relative">
@@ -126,7 +126,7 @@ export default function AboutCompanySection() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Subtle CTA */}
         <div className="mt-16 text-center">

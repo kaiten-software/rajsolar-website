@@ -114,7 +114,7 @@ export default function SolutionsSection() {
                     </Button>
                   </Link>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
