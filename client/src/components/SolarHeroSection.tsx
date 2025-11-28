@@ -54,7 +54,7 @@ export default function SolarHeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-green-600 to-green-500 text-white rounded-full text-sm font-medium mb-8 shadow-lg hover:shadow-xl transition-shadow"
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-green-600 to-green-500 text-white rounded-full text-sm font-medium mb-12 shadow-lg hover:shadow-xl transition-shadow"
           >
             <Sun className="w-4 h-4" />
             <span>Premium Solar EPC Solutions</span>
@@ -163,15 +163,19 @@ export default function SolarHeroSection() {
             </div>
           </div>
 
-          {/* Location Badge */}
-          <div className="mt-12 inline-flex items-center gap-3 px-8 py-4 bg-white/80 backdrop-blur-sm rounded-full border border-green-200 shadow-lg">
-            <span className="text-2xl">📍</span>
-            <span className="text-base font-medium text-foreground">Based in Jaipur, Rajasthan</span>
-            <span className="text-2xl">☀️</span>
-            <span className="text-base font-medium text-foreground">Serving Pan-India</span>
           </div>
         </div>
       </motion.div>
+
+      {/* Location Badge - Outside parallax */}
+      <div className="relative z-10 mt-12">
+        <div className="inline-flex items-center gap-3 px-8 py-4 bg-white/80 backdrop-blur-sm rounded-full border border-green-200 shadow-lg">
+          <span className="text-2xl">📍</span>
+          <span className="text-base font-medium text-foreground">Based in Jaipur, Rajasthan</span>
+          <span className="text-2xl">☀️</span>
+          <span className="text-base font-medium text-foreground">Serving Pan-India</span>
+        </div>
+      </div>
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
