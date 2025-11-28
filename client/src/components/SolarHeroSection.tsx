@@ -44,17 +44,14 @@ export default function SolarHeroSection() {
         <div className="absolute top-0 left-1/2 w-1 h-full bg-gradient-to-b from-green-300/30 via-transparent to-transparent transform rotate-12"></div>
       </motion.div>
 
-      <motion.div 
-        className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8"
-        style={{ y: y3 }}
-      >
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="text-center max-w-5xl mx-auto">
           {/* Premium Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-green-600 to-green-500 text-white rounded-full text-sm font-medium mb-12 shadow-lg hover:shadow-xl transition-shadow"
+            className="inline-flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-green-600 to-green-500 text-white rounded-full text-sm font-medium mt-8 mb-12 shadow-lg hover:shadow-xl transition-shadow"
           >
             <Sun className="w-4 h-4" />
             <span>Premium Solar EPC Solutions</span>
@@ -163,9 +160,9 @@ export default function SolarHeroSection() {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
-      {/* Location Badge - Outside parallax */}
+      {/* Location Badge */
       <div className="relative z-10 flex justify-center mt-12">
         <div className="inline-flex items-center gap-3 px-8 py-4 bg-white/80 backdrop-blur-sm rounded-full border border-green-200 shadow-lg">
           <span className="text-2xl">📍</span>
